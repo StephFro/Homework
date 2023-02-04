@@ -7,6 +7,27 @@
 # Note: use 0-based indexing for position and frame (biology uses 1-based)
 
 dna = 'ATGGCCTTT'
+frameCount = 0
+
+for i in range(len(dna)):
+	info = ''
+	info += str(i) + ' '
+	
+	if frameCount > 2:
+		frameCount = 0
+		info += str(frameCount) + ' '
+		frameCount = int(frameCount)
+		frameCount += 1
+	else:
+		info += str(frameCount) + ' '
+		frameCount = int(frameCount)
+		frameCount += 1
+		
+	info += dna[i]
+	
+	print(info)
+	
+	
 
 
 """
