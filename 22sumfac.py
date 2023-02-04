@@ -6,6 +6,17 @@
 
 # Note: you may not import math or any other library
 
+factorial = 1 
+sum = 0 #intialized for later
+n = 5 #later could be changed to input: so user can choose
+
+for i in range(1, n + 1): #+1 so it goes thru all
+	sum += i
+	factorial *= i
+
+print(n)
+print(sum)
+print(factorial)
 
 """
 python3 22sumfac.py
