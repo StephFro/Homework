@@ -7,6 +7,19 @@
 
 # Hint: if you get stuck for more than 10 minutes, get help
 
+amino = 'ACDEFGHIKLMNPQRSTVWY' #list of all aa
+totPrint = 0
+
+
+for i in range(0, len(amino)):
+	for j in range(i, len(amino)):
+		if i != j:
+			print(amino[i], amino[j])
+			totPrint += 1
+
+print(totPrint)
+			
+
 
 """
 python3 28aapairs.py

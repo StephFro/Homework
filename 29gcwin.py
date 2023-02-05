@@ -13,7 +13,22 @@
 
 seq = 'ACGACGCAGGAGGAGAGTTTCAGAGATCACGAATACATCCATATTACCCAGAGAGAG'
 w = 11
+pos = 0
+q = 0
 
+for i in range(len(seq) - w + 1):
+	frame = ''
+	numGC = 0
+	for x in range(q, w):
+		frame += seq[x]
+	w += 1
+	q += 1
+	for x in range(len(frame)):
+		if frame[x] == 'G' or frame[x] == 'C':
+			numGC += 1
+	numGC = numGC / len(frame)
+	print(str(pos) + ' ' + frame + ' ' + f'{numGC:.4f}')
+	pos += 1
 
 """
 python3 26gcwin.py
