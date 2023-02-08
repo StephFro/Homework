@@ -20,7 +20,7 @@ list = sys.argv[1:]
 tot = 0
 
 for i in range(len(list)):
-	#transform each element to a int
+	#transform each element to a float
 	list[i] = float(list[i])
 	
 
