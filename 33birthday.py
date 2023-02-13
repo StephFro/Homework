@@ -27,14 +27,19 @@ prob = 0
 #For a proper probability count, multiple trials must happen
 trials = 10000
 
+#go thru the trials
 for j in range(trials):
 	match = 0
 	birthday = []
+	#make a list of days with all 0's
 	for i in range(days):
 		birthday.append(0)
+	#go thru all the people and give them a birthday
 	for x in range(people):
 		bday = random.randint(0, days - 1)
 		birthday[bday] = birthday[bday] + 1
+	#go thru the birthday list, and if there is two birthdays,
+	#call it a match and increase prob
 	for number in birthday:
 		if number > 1:
 			match += 1
