@@ -21,12 +21,12 @@ tot = 0
 
 for i in range(len(list)):
 	#transform each element to a float
-	list[i] = float(list[i])
-	
+	try: 
+		list[i] = float(list[i])
+		tot += list[i]
+	except: 
+		print("Please enter a number.")
 
-for i in range(len(list)):
-	#sum the list for a test later
-	tot += list[i]
 	
 #in case of numbers not summing to 1.0
 if math.isclose(tot, 1.0, abs_tol=.01) == False:
