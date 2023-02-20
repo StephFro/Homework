@@ -9,6 +9,37 @@
 # Variation: use 20 named variables
 # Variation: use a list
 
+import sys
+import gzip
+
+
+total = 0
+
+#create a list of amino acids for reference
+aminoAcids = ['A', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M', 'P', 'Q', 'R', 'S', 'T', 'V', 'W', 'Y']
+
+#create an empty list for adding to
+compAmino = [0] * len(aminoAcids)
+
+with gzip.open(sys.argv[1], 'rt') as fp:
+	for line in fp.readlines():
+		#strip newline charaters
+		line = line.rstrip()
+		if line.startswith('>'):
+			continue
+		
+		for i in range(len(aminoAcids)):
+			acid = aminoAcids[i]
+			compAmino[i] += line.count(acid)
+
+#sum the list of amino acid numbers for a probability
+total = sum(compAmino)
+
+
+for j in range(len(aminoAcids)):
+	prob = compAmino[j]/total
+	print(aminoAcids[j], compAmino[j], f'{prob:.3}')
+
 
 """
 python3 40aacomp.py ~/DATA/E.coli/GCF_000005845.2_ASM584v2_protein.faa.gz
