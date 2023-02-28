@@ -12,30 +12,38 @@
 
 # Note: don't worry about "centering" the entropy on the window (yet)
 
+#import the library
 import sys
 import math
 import mcb185
 
+#create a function with three arguements
 def entropy(filename, x, thres):
+
+	#use the mcb185 library to read the file
 	for line, sequence in mcb185.read_fasta(filename):
 		seq = ''
 		
 		for position in range(len(seq - x + 1)):
 			seq2 = sequence[position: position + w]
 			
+			#intialize the needed bases
 			A = 0
 			T = 0
 			G = 0
 			C = 0
 			
+			#increment the bases
 			for nucleo in seq2:
 				if nucleo == 'A': A += 1
 				if nucleo == 'T': T += 1
 				if nucleo == 'G': G += 1
 				if nucleo == 'C': C += 1
-				
+			
+			#calculate the probabilities
 			probs = [A/x, T/x, G/x, C/x]
 			
+			#now calculate entropy as we did before
 			H = 0
 			
 			for probal in probs:
@@ -48,10 +56,12 @@ def entropy(filename, x, thres):
 					seq3 += seq2[0]
 			return line, seq3
 
+#get the variables from the command line
 filename = sys.argv[1]
 x = int(sys.argv[2])
 thres = float(sys.argv[3])
 
+#run the function
 line, seq2 = entropy(filename, x, thres)
 
 print(line)
