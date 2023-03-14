@@ -8,6 +8,44 @@
 # Hint: use argparse
 # Hint: use mcb185.read_fasta()
 
+import argparse
+import mcb185
+
+
+#argparse initalize
+parse = argparse.ArgumentParser(description = 'kmers in a fasta file')
+
+parse.add_argument('file', type = str, metavar = '<path>', help = 'fasta file')
+parse.add_argument('Klen', type = int, metavar = '<path>', help = 'Size k')
+
+arg = parse.parse_args()
+
+#intialize a dictionary for values
+kmers = {}
+
+#Read the file!
+for line in mcb185.read_fasta(arg.file):
+	#skip headers
+	for seq in line[1:]:
+		for pos in range(len(seq) - arg.Klen + 1):
+			kmer = seq[pos:pos + arg.Klen]
+			
+			if kmer not in kmers:
+				kmers[kmer] = 1
+			else:
+				kmers[kmer] += 1
+				
+for kmer in sorted(kmers):
+	print(kmer, kmers[kmer])
+
+
+
+#error in reading a 'closed file' to be fixed!
+
+
+
+
+
 
 """
 python3 60kmers.py ~/DATA/E.coli/GCF_000005845.2_ASM584v2_genomic.fna.gz 2
