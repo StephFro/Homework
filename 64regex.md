@@ -7,7 +7,6 @@ Format it in Markdown
 
 RegEx cheat sheet:
 
-'''
 
 a     matches the letter a
 
@@ -37,6 +36,5 @@ B     matches the letter B
 
 \s	  matches a whitespace
 
-'''
 
 
