@@ -8,6 +8,7 @@ Format it in Markdown
 RegEx cheat sheet:
 
 '''
+
 a     matches the letter a
 
 B     matches the letter B
@@ -35,6 +36,7 @@ B     matches the letter B
 \S	  matches a non-whitespace
 
 \s	  matches a whitespace
+
 '''
 
 
