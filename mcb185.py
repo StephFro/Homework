@@ -64,6 +64,17 @@ def translate(seq, frame = 0):
 			protein += gcode[seq[i:i + 3]]
 		
 	return protein	
+	
+def reverse(gene):
+	revSeq = ''
+	gene = gene.upper()
+	for i in range(len(gene) -1, -1, -1):
+		if gene[i] == 'A': revSeq += 'T'
+		elif gene[i] == 'T': revSeq += 'A'
+		elif gene[i] == 'G': revSeq += 'C'
+		elif gene[i] == 'C': revSeq += 'G'
+		else: revSeq += 'X'
+	return revSeq
 		
 		
 		
