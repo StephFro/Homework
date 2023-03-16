@@ -19,7 +19,7 @@ parse.add_argument('file', type = str, metavar = '<path>', help = 'fasta file')
 parse.add_argument('Klen', type = int, metavar = '<path>', help = 'Size k')
 
 arg = parse.parse_args()
-
+print(arg.file)
 #intialize a dictionary for values
 kmers = {}
 
@@ -38,9 +38,6 @@ for line in mcb185.read_fasta(arg.file):
 for kmer in sorted(kmers):
 	print(kmer, kmers[kmer])
 
-
-
-#error in reading a 'closed file' to be fixed!
 
 
 

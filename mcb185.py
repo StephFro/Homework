@@ -13,6 +13,7 @@ def read_fasta(filename):
 		fp = gzip.open(filename, 'rt')
 	else:
 		fp = open(filename)
+	
 		
 	name = None
 	seqs = []
@@ -30,8 +31,9 @@ def read_fasta(filename):
 				name = line[1:]
 		else:
 			seqs.append(line)
-		yield(name, ''.join(seqs))
-		fp.close()
+			
+	yield(name, ''.join(seqs))
+	fp.close()
 		
 gcode = {
 	'AAA' : 'K',	'AAC' : 'N',	'AAG' : 'K',	'AAT' : 'N',
